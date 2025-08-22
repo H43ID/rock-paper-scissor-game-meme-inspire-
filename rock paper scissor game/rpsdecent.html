@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>💀ROCK PAPER SCISSORS GAME💀</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin-top: 50px;
+                background: #9b0707
+            }
+            button {
+                      border: 10px solid gray;
+                      transition: border-color 0.3s ease; /* Smooth transition */
+                    }
+            button:hover {
+                            border-color: rgb(0, 254, 0); /* Changes border color on hover */
+                        }
+            #result {
+                margin-top: 30px;
+                font-size: 33px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Rock ✊ Paper ✋ Scissors ✌️</h1>
+        <p>choose one:</p>
+
+        <button onclick="play('rock')">Rock✊</button>
+        <button onclick="play('paper')">paper✋</button>
+        <button onclick="play('scissors')">Scissors✌️</button>
+
+        <div id="result"></div>
+
+        <script>
+            function play(userChoice) {
+                const choices = ["rock","paper","scissors"];
+                const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+                let result = "";
+
+                if (userChoice === computerChoice) {
+                    result = "its a Tie! nigga once more";
+                } else if (
+                    (userChoice === "rock" && computerChoice === "scissors") ||
+                    (userChoice === "paper" && computerChoice === "rock") ||
+                    (userChoice === "scissors" && computerChoice === "paper")
+                ) {
+                    result = `You Win! nigger ${userChoice} beats ${computerChoice}`;
+
+                } else {
+                    result = ` lol you lose bot, ${computerChoice} beats ${userChoice}`;
+                }
+
+                document.getElementById("result").innerHTML =
+                `You chose: <b>${userChoice}</b><br>
+                Computer chose: <b>${computerChoice}</b><br><br>
+                ${result}`;
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>💀ROCK PAPER SCISSORS GAME💀</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background: #9b0707;
+      overflow-x: hidden;
+      position: relative;
+    }
+    button {
+      border: 10px solid gray;
+      transition: border-color 0.3s ease;
+      margin: 10px;
+    }
+    button:hover {
+      border-color: rgb(0, 254, 0);
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 33px;
+      font-weight: bold;
+    }
+
+    
+    #explosion {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      z-index: 999;
+    }
+
+    #explosion img {
+      width: 400px; 
+      height: auto;
+      pointer-events: none; 
+    }
+
+    
+    #toast {
+      visibility: hidden;
+      min-width: 300px;
+      max-width: 400px;
+      background-color: #333;
+      color: #fff;
+      text-align: left;
+      border-radius: 8px;
+      padding: 16px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <h1>Rock ✊ Paper ✋ Scissors ✌️</h1>
+  <p>choose one:</p>
+
+  <button onclick="play('rock')">Rock✊</button>
+  <button onclick="play('paper')">Paper✋</button>
+  <button onclick="play('scissors')">Scissors✌️</button>
+
+  <div id="result"></div>
+
+  <div id="explosion">
+    <img src="discord-discordgifemoji.gif" alt="Explosion">
+  </div>
+
+  <audio id="explosion-sound" src="Memes Sounds Effects (Explosion).mp3"></audio>
+  <audio id="tie-sound" src="m2-res_720p (mp3cut.net).mp3"></audio>
+
+  <div id="toast">📡 NASA: We want to hire you for solving the hardest code project ever — Rock Paper Scissors 🚀</div>
+
+  <script>
+    function play(userChoice) {
+      const choices = ["rock","paper","scissors"];
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+      let result = "";
+
+      if (userChoice === computerChoice) {
+        result = "Its a Tie niggerrrrrrrr! Try again.";
+
+        let tieSound = document.getElementById("tie-sound");
+        tieSound.currentTime = 0;
+        tieSound.play();
+
+      } else if (
+        (userChoice === "rock" && computerChoice === "scissors") ||
+        (userChoice === "paper" && computerChoice === "rock") ||
+        (userChoice === "scissors" && computerChoice === "paper")
+      ) {
+        result = `You Win! prolly by luck try again nigga ${userChoice} beats ${computerChoice}`;
+
+        let sound = document.getElementById("explosion-sound");
+        sound.currentTime = 0; 
+        sound.play();
+
+        
+        let explosion = document.getElementById("explosion");
+        explosion.style.display = "block";
+
+        
+        setTimeout(() => {
+          explosion.style.display = "none";
+        }, 2500);
+
+        
+        showToast();
+
+      } else {
+        result = `Lol you lose, cant even win a single game bot ${computerChoice} beats ${userChoice}`;
+      }
+
+      document.getElementById("result").innerHTML =
+      `You chose: <b>${userChoice}</b><br>
+      Computer chose: <b>${computerChoice}</b><br><br>
+      ${result}`;
+    }
+
+    function showToast() {
+      let toast = document.getElementById("toast");
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
