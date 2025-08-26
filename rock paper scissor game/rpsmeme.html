@@ -85,7 +85,7 @@
   <audio id="explosion-sound" src="Memes Sounds Effects (Explosion).mp3"></audio>
   <audio id="tie-sound" src="m2-res_720p (mp3cut.net).mp3"></audio>
 
-  <div id="toast">📡 NASA: We want to hire you for solving the hardest code project ever — Rock Paper Scissors 🚀</div>
+  <div id="toast">📡 NASA: We want to hire you for creating the hardest code project ever — Rock Paper Scissors 🚀</div>
 
   <script>
     function play(userChoice) {
@@ -95,7 +95,7 @@
       let result = "";
 
       if (userChoice === computerChoice) {
-        result = "Its a Tie niggerrrrrrrr! Try again.";
+        result = "Its a Tie lmfao! Try again.";
 
         let tieSound = document.getElementById("tie-sound");
         tieSound.currentTime = 0;
@@ -106,7 +106,7 @@
         (userChoice === "paper" && computerChoice === "rock") ||
         (userChoice === "scissors" && computerChoice === "paper")
       ) {
-        result = `You Win! prolly by luck try again nigga ${userChoice} beats ${computerChoice}`;
+        result = `You Win! prolly by luck try again....${userChoice} beats ${computerChoice}`;
 
         let sound = document.getElementById("explosion-sound");
         sound.currentTime = 0; 
@@ -145,3 +145,4 @@
   </script>
 </body>
 </html>
+
